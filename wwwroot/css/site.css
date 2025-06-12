@@ -1,0 +1,133 @@
+﻿/* Reset & layout basics */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+    /* Use only on home page (in _Layout.cshtml, class="home-lock-scroll") */
+    body.home-lock-scroll {
+        overflow: hidden;
+    }
+
+/* Footer fix for flex layout */
+.footer {
+    background-color: #f9f9f9;
+    font-size: 0.9rem;
+    padding: 1rem 0;
+}
+
+/* Navbar */
+.navbar-gradient {
+    background: linear-gradient(90deg, #f0fafb, #fff5f8);
+    animation: fadeInDown 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(-10px);
+    font-size: 1rem;
+}
+
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar-nav.jp-style {
+    font-weight: 500;
+    font-size: 1rem;
+    gap: 2rem;
+}
+
+.nav-link.jp-item {
+    color: #222 !important;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+    .nav-link.jp-item:hover {
+        color: #000;
+    }
+
+.nav-link.jp-highlight {
+    background: linear-gradient(90deg, #A5EAED, #FDB5DA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+/* Logo */
+.logo-img {
+    width: 100px;
+    height: auto;
+}
+
+/* Buttons */
+.gradient-btn {
+    background-color: white;
+    color: #333;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 0.6rem 1.6rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+    .gradient-btn:hover {
+        background: linear-gradient(90deg, #A5EAED, #FDB5DA);
+        color: white;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(165, 234, 237, 0.3);
+    }
+
+/* Gradient text (for "Sekai") */
+.gradient-text {
+    background: linear-gradient(270deg, #A5EAED, #FDB5DA, #A5EAED);
+    background-size: 600% 600%;
+    animation: moveGradient 5s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Utility tweaks */
+.jp-nav-item {
+    color: #333 !important;
+    margin: 0 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+    .jp-nav-item:hover {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+
+.hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+}

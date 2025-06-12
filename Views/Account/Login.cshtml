@@ -1,0 +1,55 @@
+﻿@using eTickets.Data.ViewModels
+@model LoginVM
+
+@{
+    ViewData["Title"] = "Log in to your account";
+    Layout = "_Layout";
+    ViewData["HideNavbar"] = true;
+    ViewData["HideFooter"] = true;
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <h4>Log in to your account</h4>
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger">
+                <b>Sorry!</b> @TempData["Error"]
+            </div>
+        }
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="EmailAddress" class="form-label"></label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+            @* <form asp-controller="Account" asp-action="ExternalLogin" method="post">
+                <input type="hidden" name="provider" value="Google" />
+                <input type="submit" value="Login with Google" class="btn btn-danger w-100 mt-2" />
+            </form> *@
+                <a asp-controller="Account" asp-action="ExternalLogin" asp-route-provider="Google" class="btn btn-danger w-100 mb-3">
+                    Login with Google
+                </a>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Log in</button>
+                <a asp-action="ForgotPassword">Forgot Password? Click here</a>
+            
+            <p class="mt-3 text-center">
+                Don't have an account? <a asp-action="Register">Sign up</a>
+            </p>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
