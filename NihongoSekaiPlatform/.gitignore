@@ -1,2 +1,7 @@
 launchSettings.json
+bin/
+obj/
 .vs/
+*.user
+*.suo
+*.csproj.user
